@@ -1,6 +1,6 @@
 services:
   dash-app:
-    build: .            # <--- ESTA LÍNEA ES LA QUE FALTA
+    build: .            
     image: KDash   # Ahora esto servirá como etiqueta local
     container_name: KDash_cont
     ports:

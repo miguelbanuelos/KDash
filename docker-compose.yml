@@ -1,0 +1,16 @@
+services:
+  dash-app:
+    build: .            # <--- ESTA LÍNEA ES LA QUE FALTA
+    image: KDash   # Ahora esto servirá como etiqueta local
+    container_name: KDash_cont
+    ports:
+      - "8052:8052"
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true

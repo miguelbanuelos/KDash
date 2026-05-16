@@ -1,8 +1,8 @@
 services:
   dash-app:
     build: .            
-    image: KDash   # Ahora esto servirá como etiqueta local
-    container_name: KDash_cont
+    image: kdash   # Ahora esto servirá como etiqueta local
+    container_name: kdash_cont
     ports:
       - "8052:8052"
     restart: unless-stopped

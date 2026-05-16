@@ -117,7 +117,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dbc.NavLink('Products', href='/Products')),
         dbc.NavItem(dbc.NavLink('Category', href='/Category')),
     ],
-    brand="KD Analytics Dashboard",
+    brand="KD Analytics",
     brand_href="/Overall",
     color="primary",
     dark=True,

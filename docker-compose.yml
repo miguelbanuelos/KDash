@@ -10,7 +10,20 @@ services:
       - .:/usr/src/app
     networks:
       - shared_network
-
+  webhook-listener:
+    build:
+      context: .
+      dockerfile: Dockerfile.webhook
+    container_name: github_webhook_listener
+    ports:
+      - "9005:9000"
+    volumes:
+      - /docker/KDash:/docker/KDash
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: webhook -verbose -hooks=/docker/KDash/hooks.json -hotreload
+    restart: unless-stopped
+    networks:
+      - shared_network
 networks:
   shared_network:
     external: true

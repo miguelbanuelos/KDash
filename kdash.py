@@ -15,7 +15,7 @@ DATA_CACHE = {}
 money_format = Format(precision=2, scheme=Scheme.fixed, symbol=Symbol.yes, symbol_prefix='$', group=True)
 
 # URL fija para evitar que rompa en la lectura del código estructurado
-url = 'http://192.168.3.155:3000/run-query'
+url = 'http://192.168.3.155:8053/run-query'
 
 # ==============================================================================
 # 2. DATA FETCHING AND PROCESSING
@@ -33,7 +33,7 @@ def get_data(use_cache=False):
         response.raise_for_status()
 
         data = response.json()
-        df = pd.DataFrame(data['results'])
+        df = pd.DataFrame(data['data'])
         df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize(None)
 
         # Annual Aggregation
@@ -117,7 +117,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dbc.NavLink('Products', href='/Products')),
         dbc.NavItem(dbc.NavLink('Category', href='/Category')),
     ],
-    brand="KD Analytics Dashboard :-) auto",
+    brand="KD Analytics Dashboard :-)",
     brand_href="/Overall",
     color="primary",
     dark=True,
